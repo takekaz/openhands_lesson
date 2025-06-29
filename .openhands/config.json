@@ -1,0 +1,30 @@
+{
+  "llms": {
+    "llama-elyza": {
+      "name": "elyza-llama3-jp",
+      "type": "openai",
+      "base_url": "http://localhost:8001/v1",
+      "api_key": "sk-no-key-needed",
+      "model": "any-model",
+      "completion_options": {
+        "temperature": 0.7,
+        "max_tokens": 512,
+        "top_p": 0.95,
+        "stop": ["</s>", "ユーザー：", "システム："]
+      }
+    },
+    "deepseek-coder-ja": {
+      "name": "deepseek-coder-ja",
+      "type": "openai",
+      "base_url": "http://localhost:8002/v1",
+      "api_key": "sk-no-key-needed",
+      "model": "any-model",
+      "completion_options": {
+        "temperature": 0.5,
+        "max_tokens": 1024,
+        "top_p": 0.9,
+        "stop": ["</s>", "ユーザー：", "システム："]
+      }
+    }
+  }
+}
