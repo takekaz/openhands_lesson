@@ -3,7 +3,7 @@
     "llama-elyza": {
       "name": "elyza-llama3-jp",
       "type": "openai",
-      "base_url": "http://localhost:8001/v1",
+      "base_url": "http://host.docker.internal:8001/v1",
       "api_key": "sk-no-key-needed",
       "model": "any-model",
       "completion_options": {
@@ -16,7 +16,7 @@
     "deepseek-coder-ja": {
       "name": "deepseek-coder-ja",
       "type": "openai",
-      "base_url": "http://localhost:8002/v1",
+      "base_url": "http://host.docker.internal:8002/v1",
       "api_key": "sk-no-key-needed",
       "model": "any-model",
       "completion_options": {
