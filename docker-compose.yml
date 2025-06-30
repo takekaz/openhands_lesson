@@ -1,0 +1,39 @@
+
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13-alpine
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: bento_order_db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432" # ホストの5432ポートをコンテナの5432ポートにマッピング
+
+  backend:
+    build: ./backend
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000" # ホストの8000ポートをコンテナの8000ポートにマッピング
+    environment:
+      DATABASE_URL: postgres://user:password@db:5432/bento_order_db
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend
+    command: npm start
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "3000:3000" # ホストの3000ポートをコンテナの3000ポートにマッピング
+    depends_on:
+      - backend
+
+volumes:
+  pg_data:
